@@ -1,9 +1,21 @@
 Infoscribe::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  resources :subscriptions
 
-  # You can have the root of your site routed with "root"
-  # root to: 'welcome#index'
+  devise_for :users
+  get "welcome/index"
+  get "welcome/about"
+
+  resources :subscriptions, :only => [:new, :create]
+
+  root :to => 'welcome#index'
+
+  # authenticated :user do
+  #   root :to => 'welcome#index', :as => :authenticated_root
+  # end
+  # root :to => redirect('/users/sign_in')
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
