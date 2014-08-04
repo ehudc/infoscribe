@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0.beta1'
 gem 'devise'
 gem 'figaro'
+gem 'httparty'
 
 group :production do
   gem 'pg'

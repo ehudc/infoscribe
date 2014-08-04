@@ -6,11 +6,12 @@ class Welcome < ActionMailer::Base
       sender.subscription_type = "Category LOGIC TO FILL"
     end
 
-    if sender.subs1
-      sender.content = "subs1 was checked"
+    if sender.subs1 == 'true'
+      response = JSON.parse(HTTParty.get('http://catfacts-api.appspot.com/api/facts'))
+      sender.content = response['facts'][0]
     end
 
-    if sender.subs2
+    if sender.subs2 == 'true'
       sender.content << " subs2 was picked also"
     end
 
