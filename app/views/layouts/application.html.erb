@@ -40,8 +40,12 @@
     </section>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+    <p class="notice alert-box info radius"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-box alert round"><%= alert %></p>
+  <% end %>
 
 <%= yield %>
 

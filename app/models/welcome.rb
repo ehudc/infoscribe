@@ -2,11 +2,8 @@ class Welcome < ActionMailer::Base
   def subscription_notification(sender)
     @sender = sender
 
-    if sender.subscription_type == "TEST"
-      sender.subscription_type = "Category LOGIC TO FILL"
-    end
-
     if sender.subs1 == 'true'
+      sender.subscription_type = "Infoscribe: Cat Fact"
       response = JSON.parse(HTTParty.get('http://catfacts-api.appspot.com/api/facts'))
       sender.content = response['facts'][0]
     end

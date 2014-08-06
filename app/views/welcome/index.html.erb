@@ -1,8 +1,9 @@
-<h1>Welcome#index</h1>
-
 <div class="main">
   <% if user_signed_in? %>
     <h2>Welcome <%= current_user.email %> !! </h2>
+  <% else %>
+    <h2>Welcome to Infoscribe!!</h2>
+    <h4>Sign up or Sign in above</h4>
   <% end %>
     Placeholder for some welcome content... 
 </div>
