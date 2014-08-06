@@ -1,34 +1,55 @@
-<!-- use def to_key in model, or :as to generate dom_id -->
-<%= form_for @subscription, :url => { :action => "create" }, :html => { :method => :post }, :as => 'subscription' do |f| %>
+<form>
+  <!-- use def to_key in model, or :as to generate dom_id -->
+  <%= form_for @subscription, :url => { :action => "create" }, :html => { :method => :post }, :as => 'subscription' do |f| %>
 
   <p>
     <%= f.hidden_field :email, :value => current_user.email, :readonly => true %>
   </p>
-  
-  <p>
-    <%= f.label "Type" %>
-  </p>
-  <p>
-    <%= f.select :subscription_type, options_for_select(["TEST", "Put categories here"]) %>
-  </p>
 
-  <p>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label "Type" %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="large-4 columns">
+    <%= f.select :subscription_type, options_for_select(["TEST", "Put categories here"]) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
     <%= f.label "Subscriptions" %>
-  </p>
-  <p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
     Cat Facts
     <%= check_box 'subscription', 'subs1', {}, 'true', 'false' %>
     Subs2
     <%= check_box 'subscription', 'subs2', {}, 'true', 'false' %>
-  </p>
+    </div>
+  </div>
 
-  <p>
+  <div class="row">
+    <div class="large-4 columns">
     <%= f.label "Test Content Form" %>
-  </p>
-  <p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-4 columns">
     <%= f.text_area :content %>
-  </p>
-  <p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-4 columns">
     <%= f.submit "Submit" %>
-  </p>
-<% end %>
+    </div>
+  </div>
+
+  <% end %>
+</form>
